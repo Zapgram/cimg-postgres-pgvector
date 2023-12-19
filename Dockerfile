@@ -1,6 +1,10 @@
 ARG POSTGRES_VERSION
 
-FROM cimg/postgres:${POSTGRES_VERSION}
+FROM postgres:${POSTGRES_VERSION}
+
+RUN apt-get update \
+    && apt-get install -y git make gcc postgresql-server-dev-15 \
+    && rm -rf /var/lib/apt/lists/*
 
 ARG PGVECTOR_VERSION
 
