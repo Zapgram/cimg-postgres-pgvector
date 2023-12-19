@@ -20,4 +20,4 @@ jobs:
 
       - name: Build image
         run: |
-          docker build --build-arg="POSTGRES_VERSION=${POSTGRES_VERSION}" --build-arg="PGVECTOR_VERSION=${PGVECTOR_VERSION}" --tag "ghcr.io/Zapgram/cimg-postgres-pgvector:${POSTGRES_VERSION}-${PGVECTOR_VERSION}" .
+          docker build --build-arg="POSTGRES_VERSION=${POSTGRES_VERSION}" --build-arg="PGVECTOR_VERSION=${PGVECTOR_VERSION}" --tag "ghcr.io/zapgram/cimg-postgres-pgvector:${POSTGRES_VERSION}-${PGVECTOR_VERSION}" .
