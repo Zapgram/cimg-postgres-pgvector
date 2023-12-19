@@ -1,0 +1,23 @@
+---
+
+name: Build Docker image
+
+env:
+  POSTGRES_VERSION: "15.3"
+  PGVECTOR_VERSION: "0.4.4"
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build image
+        run: |
+          docker build --build-arg="POSTGRES_VERSION=${POSTGRES_VERSION}" --build-arg="PGVECTOR_VERSION=${PGVECTOR_VERSION}" --tag "ghcr.io/Zapgram/cimg-postgres-pgvector:${POSTGRES_VERSION}-${PGVECTOR_VERSION}" .
