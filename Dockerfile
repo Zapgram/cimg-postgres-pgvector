@@ -1,10 +1,9 @@
 ARG POSTGRES_VERSION
 
-FROM postgres:${POSTGRES_VERSION}
+FROM postgres:${POSTGRES_VERSION}-alpine
 
-RUN apt-get update \
-    && apt-get install -y git make gcc postgresql-server-dev-15 \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache \
+    git make gcc clang15 llvm15 musl-dev
 
 ARG PGVECTOR_VERSION
 
