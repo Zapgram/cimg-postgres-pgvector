@@ -3,13 +3,14 @@
 name: Build and publish Docker image
 
 env:
-  POSTGRES_VERSION: "15.3"
+  POSTGRES_VERSION: "15.5"
   PGVECTOR_VERSION: "0.4.4"
 
 on:
   push:
     branches:
       - trunk
+  pull_request:
   workflow_dispatch:
 
 jobs:
