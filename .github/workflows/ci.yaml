@@ -4,7 +4,7 @@ name: Build and publish Docker image
 
 env:
   POSTGRES_VERSION: "15.5"
-  PGVECTOR_VERSION: "0.4.4"
+  PGVECTOR_VERSION: "0.5.1"
 
 on:
   push:
