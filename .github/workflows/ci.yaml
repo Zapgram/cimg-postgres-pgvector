@@ -4,6 +4,7 @@ name: Build and publish Docker image
 
 env:
   POSTGRES_VERSION: "15.7"
+  HYPOPG_VERSION: "1.4.0"
   PGVECTOR_VERSION: "0.6.0"
 
 on:
@@ -37,7 +38,8 @@ jobs:
           context: .
           build-args: |
             POSTGRES_VERSION=${{env.POSTGRES_VERSION}}
+            HYPOPG_VERSION=${{env.HYPOPG_VERSION}}
             PGVECTOR_VERSION=${{env.PGVECTOR_VERSION}}
           platforms: linux/amd64,linux/arm64
-          tags: ghcr.io/zapgram/pilot-postgres:${{env.POSTGRES_VERSION}}-pgvector${{env.PGVECTOR_VERSION}}
+          tags: ghcr.io/zapgram/pilot-postgres:${{env.POSTGRES_VERSION}}-hypopg${{env.HYPOPG_VERSION}}-pgvector${{env.PGVECTOR_VERSION}}
           push: ${{ github.ref_name == 'trunk' }}
