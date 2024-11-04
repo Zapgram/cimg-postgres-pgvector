@@ -3,7 +3,7 @@
 name: Build and publish Docker image
 
 env:
-  POSTGRES_VERSION: "15.6"
+  POSTGRES_VERSION: "15.7"
   PGVECTOR_VERSION: "0.6.0"
 
 on:
